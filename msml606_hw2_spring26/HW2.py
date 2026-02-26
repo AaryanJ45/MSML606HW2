@@ -24,6 +24,10 @@ class HomeWork2:
     #     3   4
 
     def constructBinaryTree(self, input) -> TreeNode:
+        # If the input is already empty, we just return None
+        if len(input) == 0:
+            return None
+        
         # Creating a stack to store the nodes/go through the list to make a tree
         # I'm going to create the stack using a list
         stack = []
