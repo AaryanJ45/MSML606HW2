@@ -24,7 +24,25 @@ class HomeWork2:
     #     3   4
 
     def constructBinaryTree(self, input) -> TreeNode:
-        pass
+        # Creating a stack to store the nodes/go through the list to make a tree
+        # I'm going to create the stack using a list
+        stack = []
+
+        # Going through the list, if the current item is an operand, push it to the stack, if it is an operator
+        # pop the top two elements in the stack and set them to left and right children on the operator
+        for i in input:
+            # If the current item is an operand, pushing it to the stack
+            if i not in ['+', '-', '*', '/']:
+                stack.append(TreeNode(i))
+            # If the current item is an operator, setting the right and left children for the operator
+            else:
+                right_child = stack.pop()
+                left_child = stack.pop()
+                stack.append(TreeNode(i, left_child, right_child)) # Now, we can push the operator with its left and right children to the stack
+        
+        # At the end, the only item that is left in the stack would be the root node of the tree, so we return that
+        # Returning the root node of the tree
+        return stack.pop()
 
 
 
