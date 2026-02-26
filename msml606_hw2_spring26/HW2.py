@@ -153,6 +153,8 @@ class Stack:
         for i in exp.split(): # Splitting exp through spaces
             # If the current item is an operand, push it into the stack
             if i not in ['+', '-', '*', '/']:
+                # Setting i to an integer before we push, since we are getting in strings
+                i = int(i)
                 stack.push(i)
             # If the current item is an operator, pop the top two elements and process them
             else:
