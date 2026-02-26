@@ -56,7 +56,14 @@ class HomeWork2:
     # you can see the examples in p2_traversals.csv
 
     def prefixNotationPrint(self, head: TreeNode) -> list:
-        pass
+        # If the head is already None, we just return an empty list since there is nothing to print
+        if head is None:
+            return []
+        else:
+            # Add the root node to the list, and then recursively calling the function on the left child and the right child
+            # PreOrder traversal visits the root node first, then the children from left to right
+            return [head.val] + self.prefixNotationPrint(head.left) + self.prefixNotationPrint(head.right)
+        
 
     # Problem 2.2: Use in-order traversal (left, root, right) for infix notation with appropriate parentheses.
     # return an array of elements of an infix expression
