@@ -118,7 +118,16 @@ class Stack:
 
     def __init__(self):
         # TODO: initialize the stack
-        pass
+        self.stack = [] # Initializing the stack
+    
+    def push(self, item):
+        # Pushing an item into the stack
+        self.stack.append(item)
+    
+    def pop(self): 
+        # Popping the top item from the stack
+        return self.stack.pop()
+    
 
     # Problem 3: Write code to evaluate a postfix expression using stack and return the integer value
     # Use stack which you implemented above for this problem
@@ -133,9 +142,35 @@ class Stack:
 
     # DO NOT USE EVAL function for evaluating the expression
 
-    def evaluatePostfix(exp: str) -> int:
+    def evaluatePostfix(self, exp: str) -> int:
         # TODO: implement this using your Stack class
-        pass
+        # Creating a stack
+        stack = Stack()
+
+        # Going through the expression, if the current item is an operand, I push it to the stack
+        # If it is an operator, I pop the top two elements from the stack and perform an operation with them
+        # Then, I push the result back into the stack
+        for i in exp.split(): # Splitting exp through spaces
+            # If the current item is an operand, push it into the stack
+            if i not in ['+', '-', '*', '/']:
+                stack.push(i)
+            # If the current item is an operator, pop the top two elements and process them
+            else:
+                right = stack.pop()
+                left = stack.pop()
+                # Going through all the cases for the operator
+                if i == '+':
+                    stack.push(left + right)
+                elif i == '-':
+                    stack.push(left - right)
+                elif i == '*':
+                    stack.push(left * right)
+                elif i == '/':
+                    stack.push(left / right)
+                
+        # After everything, the only item left in the stack would be the result, so we pop that from the stack and return it
+        return stack.pop()
+
 
 
 # Main Function. Do not edit the code below
