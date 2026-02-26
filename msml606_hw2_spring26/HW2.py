@@ -82,7 +82,14 @@ class HomeWork2:
         else:
             # Calling the function recursively on the left child, adding the root node, and the calling the function recursively on the right child
             # Adding the parentheses as well in this return
-            return ['('] + self.infixNotationPrint(head.left) + [head.val] + self.infixNotationPrint(head.right) + [')']
+            
+            # If the left and right children are both None, we don't want to add parentheses around just the root node, so we just return the root
+            if head.left is None and head.right is None:
+                return [head.val]
+            # Otherwise, we add the parentheses like we were doing before
+            else:
+                # print(['('] + self.infixNotationPrint(head.left) + [head.val] + self.infixNotationPrint(head.right) + [')'])
+                return ['('] + self.infixNotationPrint(head.left) + [head.val] + self.infixNotationPrint(head.right) + [')']
 
 
     # Problem 2.3: Use post-order traversal (left, right, root) to generate postfix notation.
