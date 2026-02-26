@@ -91,7 +91,13 @@ class HomeWork2:
     # you can see the examples in p2_traversals.csv
 
     def postfixNotationPrint(self, head: TreeNode) -> list:
-        pass
+        # Same thing as the other two functions, using recursion, but not also in a different order -> left, right, root
+        # Returning and empty list if the head is already None
+        if head is None:
+            return []
+        else:
+            # Calling the function recursively on the left child, the right child, and then adding the root node to the list
+            return self.postfixNotationPrint(head.left) + self.postfixNotationPrint(head.right) + [head.val]
 
 
 class Stack:
