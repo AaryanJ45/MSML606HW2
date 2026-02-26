@@ -75,7 +75,14 @@ class HomeWork2:
     # treat parentheses as individual elements in the returned list (see output)
 
     def infixNotationPrint(self, head: TreeNode) -> list:
-        pass
+        # same kind of code as the previous function, recursion, by now adding the parentheses and going in a different order -> left, root, right
+        # Again, if the head is already None, we just return empty list
+        if head is None:
+            return []
+        else:
+            # Calling the function recursively on the left child, adding the root node, and the calling the function recursively on the right child
+            # Adding the parentheses as well in this return
+            return ['('] + self.infixNotationPrint(head.left) + [head.val] + self.infixNotationPrint(head.right) + [')']
 
 
     # Problem 2.3: Use post-order traversal (left, right, root) to generate postfix notation.
