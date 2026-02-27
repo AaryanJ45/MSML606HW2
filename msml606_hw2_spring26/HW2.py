@@ -37,7 +37,12 @@ class HomeWork2:
         for i in input:
             # If the current item is an operand, pushing it to the stack
             if i not in ['+', '-', '*', '/']:
-                stack.append(TreeNode(i))
+                # Checking if the item is a valid operand
+                try:
+                    int(i) # if it is a valid operand, it will be converted normally, if not, it will raise and error
+                    stack.append(TreeNode(i))
+                except ValueError:
+                    raise ValueError("Invalid operand")
             # If the current item is an operator, setting the right and left children for the operator
             else:
                 # Checking if there are enough operands in the stack to perform the operation
@@ -162,9 +167,13 @@ class Stack:
         for i in exp.split(): # Splitting exp through spaces
             # If the current item is an operand, push it into the stack
             if i not in ['+', '-', '*', '/']:
-                # Setting i to an integer before we push, since we are getting in strings
-                i = int(i)
-                stack.push(i)
+                # Checking if the item is a valid operand
+                try:
+                    # Setting i to an integer before we push, since we are getting in strings
+                    i = int(i)
+                    stack.push(i)
+                except ValueError:
+                    raise ValueError("Invalid operand")
             # If the current item is an operator, pop the top two elements and process them
             else:
                 # Checking if there are enough operands in the stack to perform the operation
