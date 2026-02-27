@@ -40,6 +40,9 @@ class HomeWork2:
                 stack.append(TreeNode(i))
             # If the current item is an operator, setting the right and left children for the operator
             else:
+                # Checking if there are enough operands in the stack to perform the operation
+                if len(stack) < 2:
+                    raise ValueError("Not enough operands to perform the operation")
                 right_child = stack.pop()
                 left_child = stack.pop()
                 stack.append(TreeNode(i, left_child, right_child)) # Now, we can push the operator with its left and right children to the stack
@@ -128,6 +131,9 @@ class Stack:
         # Popping the top item from the stack
         return self.stack.pop()
     
+    def len(self):
+        # returning the length of the stack
+        return len(self.stack)
 
     # Problem 3: Write code to evaluate a postfix expression using stack and return the integer value
     # Use stack which you implemented above for this problem
@@ -157,10 +163,13 @@ class Stack:
             # If the current item is an operand, push it into the stack
             if i not in ['+', '-', '*', '/']:
                 # Setting i to an integer before we push, since we are getting in strings
-                i = int(i)T
+                i = int(i)
                 stack.push(i)
             # If the current item is an operator, pop the top two elements and process them
             else:
+                # Checking if there are enough operands in the stack to perform the operation
+                if stack.len() < 2:
+                    raise ValueError("Not enough operands to perform the operation")
                 right = stack.pop()
                 left = stack.pop()
                 # Going through all the cases for the operator
