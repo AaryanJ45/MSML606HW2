@@ -144,8 +144,11 @@ class Stack:
 
     def evaluatePostfix(self, exp: str) -> int:
         # TODO: implement this using your Stack class
-        # Creating a stack
-        stack = Stack()
+
+        # checking if there is an empty postfix expression
+        if len(exp) == 0:
+            return 0       
+        stack = Stack() # Creating a stack
 
         # Going through the expression, if the current item is an operand, I push it to the stack
         # If it is an operator, I pop the top two elements from the stack and perform an operation with them
@@ -154,7 +157,7 @@ class Stack:
             # If the current item is an operand, push it into the stack
             if i not in ['+', '-', '*', '/']:
                 # Setting i to an integer before we push, since we are getting in strings
-                i = int(i)
+                i = int(i)T
                 stack.push(i)
             # If the current item is an operator, pop the top two elements and process them
             else:
