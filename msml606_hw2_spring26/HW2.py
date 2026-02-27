@@ -13,6 +13,8 @@ class HomeWork2:
     # Used the class notes to review all the tree information, how to build a tree. From class notes, I also reviewed a little bit of infix, postfix, prefix, talked with Gemini if I had any questions on the class notes. 
     # Also from the class notes, I reviewed the stack structure that we talked about in class.
 
+    # LINK TO GITHUB REPO: https://github.com/AaryanJ45/MSML606HW2
+
 
 
     # Problem 1: Construct an expression tree (Binary Tree) from a postfix expression
