@@ -8,6 +8,13 @@ class TreeNode:
 
 class HomeWork2:
 
+    # AI STATEMENT: 
+    # Used Google gemini to help me better understand/get a review on postfix expressions. Also used Google gemini to help review a little bit on the different types of traversals like infix, postfix, prefix. 
+    # Used the class notes to review all the tree information, how to build a tree. From class notes, I also reviewed a little bit of infix, postfix, prefix, talked with Gemini if I had any questions on the class notes. 
+    # Also from the class notes, I reviewed the stack structure that we talked about in class.
+
+
+
     # Problem 1: Construct an expression tree (Binary Tree) from a postfix expression
     # input -> list of strings (e.g., [3,4,+,2,*])
     # this is parsed from p1_construct_tree.csv (check it out for clarification)
